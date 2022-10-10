@@ -48,11 +48,23 @@
                             <field name="postcode"/>
                         </group>
                         <group>
-                            <field name="description"/>
+                            <field name="expected_price"/>
+                        </group>
+                        <group>
+                            <field name="selling_price"/>
                         </group>
                         <notebook>
                             <page string="Description">
                                 <field name="description"/>
+                                <field name="bedrooms"/>
+                                <field name="living_area" string="Living Area (sqm)"/>
+                                <field name="facades"/>
+                                <field name="garage"/>
+                                <field name="garden"/>
+                                <field name="garden_area" string="Garden Area (sqm)"/>
+                                <field name="garden_orientation"/>
+                            </page>
+                            <page string="Some other page">
                             </page>
                         </notebook>
                     </group>
