@@ -18,7 +18,7 @@ class EstateProperty(models.Model):
     date_availability = fields.Date(copy=False, default=lambda self: fields.Datetime.now() + relativedelta(months=3))
     expected_price = fields.Float(required=True)
     selling_price = fields.Float(readonly=True, copy=False)
-    bedrooms = fields.Integer()
+    bedrooms = fields.Integer(default=2)
     living_area = fields.Integer()
     facades = fields.Integer()
     garage = fields.Boolean()
@@ -27,3 +27,7 @@ class EstateProperty(models.Model):
     garden_orientation = fields.Selection(string='Garden Orientation',
                                           selection=[('north', 'North'), ('sout', 'South'), ('west', 'West'),
                                                      ('east', 'East')])
+    active = fields.Boolean(default=True)
+    state = fields.Selection(
+        selection=[('new', 'New'), ('offer received', 'Offer Received'), ('offer accepted', 'Offer Accepted'),
+                   ('sold', 'Sold'), ('canceled', 'Canceled')], default='new')
