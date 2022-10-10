@@ -59,4 +59,18 @@
             </form>
         </field>
     </record>
+
+    <record id="estate_property_filter" model="ir.ui.view">
+        <field name="name">estate_property_view_filter</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+        <search string="Estates">
+            <field name="name" string="Title"/>
+            <field name="postcode"/>
+            <field name="expected_price"/>
+            <field name="bedrooms"/>
+            <field name="living_area" string="Living Area (sqm)"/>
+            <field name="facades"/>
+        </search>
+    </record>
 </odoo>
