@@ -1,60 +1,47 @@
 <?xml version="1.0"?>
 <odoo>
     <record id="estate_property_action" model="ir.actions.act_window">
-        <field name="name">Real Estate Action</field>
+        <field name="name">Real Estate View</field>
         <field name="res_model">estate.property</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
-            Lorem ipsum
-          </p><p>
-            Dolor sit amet
+            No estates yet :(!
           </p>
         </field>
     </record>
 
-    <record id="estate_property_action2" model="ir.actions.act_window">
-        <field name="name">Real Estate Action2</field>
-        <field name="res_model">estate.property</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
-            Wow nice!
-          </p>
-        </field>
-    </record>
-
-    <record id="estate_tree" model="ir.ui.view">
-        <field name="name">Real Estate Tree</field>
+    <record id="estate_property_view_tree" model="ir.ui.view">
+        <field name="name">estate_property_view_tree</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <tree string="Channel">
                 <field name="name"/>
+                <field name="postcode"/>
+                <field name="bedrooms"/>
+                <field name="living_area" string="Living Area (sqm)"/>
+                <field name="expected_price"/>
+                <field name="selling_price"/>
+                <field name="date_availability" string="Available From"/>
             </tree>
         </field>
     </record>
 
-    <record id="estate_view_form" model="ir.ui.view">
-        <field name="name">Real Estate Form</field>
+    <record id="estate_property_view_form" model="ir.ui.view">
+        <field name="name">estate_property_view_form</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <form string="Test">
+            <form string="estate_property_form">
                 <sheet>
                     <group>
-                        <group>
-                            <field name="name"/>
-                        </group>
-                        <group>
-                            <field name="postcode"/>
-                        </group>
-                        <group>
-                            <field name="expected_price"/>
-                        </group>
-                        <group>
-                            <field name="selling_price"/>
-                        </group>
-                        <notebook>
-                            <page string="Description">
+                        <field name="name"/>
+                        <field name="postcode"/>
+                        <field name="expected_price"/>
+                        <field name="selling_price"/>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <group>
                                 <field name="description"/>
                                 <field name="bedrooms"/>
                                 <field name="living_area" string="Living Area (sqm)"/>
@@ -63,11 +50,11 @@
                                 <field name="garden"/>
                                 <field name="garden_area" string="Garden Area (sqm)"/>
                                 <field name="garden_orientation"/>
-                            </page>
-                            <page string="Some other page">
-                            </page>
-                        </notebook>
-                    </group>
+                            </group>
+                        </page>
+                        <page string="Some other page">
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

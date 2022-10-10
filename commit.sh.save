@@ -1,0 +1,5 @@
+git add .
+git config --global user.email "thibault.betremieux@gmail.com"
+git config --global user.name "Thibault Betremieux"
+git commit -m "do something"
+git push https HEAD:master
