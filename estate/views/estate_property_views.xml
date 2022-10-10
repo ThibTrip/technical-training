@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-    <record id="real_estate_button" model="ir.actions.act_window">
+    <record id="estate_property_action" model="ir.actions.act_window">
         <field name="name">Real Estate Action</field>
         <field name="res_model">estate.property</field>
         <field name="view_mode">tree,form</field>
@@ -10,6 +10,27 @@
           </p><p>
             Dolor sit amet
           </p>
+        </field>
+    </record>
+
+    <record id="estate_property_action2" model="ir.actions.act_window">
+        <field name="name">Real Estate Action2</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Wow nice!
+          </p>
+        </field>
+    </record>
+
+    <record id="estate_tree" model="ir.ui.view">
+        <field name="name">Real Estate Tree</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <tree string="Channel">
+                <field name="name"/>
+            </tree>
         </field>
     </record>
 </odoo>
