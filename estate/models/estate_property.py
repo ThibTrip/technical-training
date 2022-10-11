@@ -1,10 +1,5 @@
-import logging
-
-from odoo import models, fields, api, tools
-from odoo.exceptions import UserError, ValidationError
+from odoo import models, fields
 from dateutil.relativedelta import relativedelta
-
-_logger = logging.getLogger(__name__)
 
 
 class EstateProperty(models.Model):
@@ -25,9 +20,19 @@ class EstateProperty(models.Model):
     garden = fields.Boolean()
     garden_area = fields.Integer()
     garden_orientation = fields.Selection(string='Garden Orientation',
-                                          selection=[('north', 'North'), ('sout', 'South'), ('west', 'West'),
+                                          selection=[('north', 'North'),
+                                                     ('sout', 'South'),
+                                                     ('west', 'West'),
                                                      ('east', 'East')])
     active = fields.Boolean(default=True)
     state = fields.Selection(
-        selection=[('new', 'New'), ('offer received', 'Offer Received'), ('offer accepted', 'Offer Accepted'),
+        selection=[('new', 'New'), ('offer received', 'Offer Received'),
+                   ('offer accepted', 'Offer Accepted'),
                    ('sold', 'Sold'), ('canceled', 'Canceled')], default='new')
+
+    # relations
+    property_type_id = fields.Many2one('estate.property.type', string='Property Type')
+    salesperson_id = fields.Many2one('res.users', string='Salesperson', default=lambda self: self.env.user)
+    buyer_id = fields.Many2one("res.partner", string="Buyer", copy=False)
+    tags_ids = fields.Many2many('estate.property.tag')
+    offer_ids = fields.One2many('estate.property.offer', 'property_id')
